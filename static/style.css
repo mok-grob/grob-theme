@@ -68,20 +68,22 @@ a:hover {
    ============================================ */
 
 .site-header {
+   height: 75px;
   position: sticky;
   top: 0;
   background-color: var(--color-bg-white);
   border-bottom: var(--border-thin);
-  padding: 20px 40px;
+  padding: 12px 40px;
   z-index: 100;
+  width: 100%;
 }
 
 .site-nav {
   max-width: var(--content-max-width);
-  margin: 0 auto;
+  margin: 0;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: bottom;
 }
 
 .site-title {
@@ -91,6 +93,7 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--color-text-000);
+   margin-right: 10px;
 }
 
 .site-title a {
@@ -104,8 +107,8 @@ a:hover {
 
 .nav-menu {
   display: flex;
-  gap: 32px;
-  align-items: center;
+  gap: 20px;
+  align-items: bottom;
   list-style: none;
 }
 
@@ -113,7 +116,7 @@ a:hover {
   font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 400;
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: 0.05em;
 }
 
@@ -137,7 +140,7 @@ a:hover {
   font-size: 12px;
   padding: 6px 12px;
   border: var(--border-subtle);
-  border-radius: 0;
+  border-radius: 99px;
   background: var(--color-bg-grey);
   color: var(--color-text-333);
 }
