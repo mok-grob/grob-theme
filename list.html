@@ -1,0 +1,50 @@
+{{ define "main" }}
+<div class="site-main">
+  <div class="content-full">
+    <div class="changelog-feed">
+      {{ $paginator := .Paginate (where .Site.RegularPages "Type" "posts") }}
+      {{ range $paginator.Pages }}
+        <article class="changelog-entry">
+          <!-- Date Column -->
+          <a href="/archive/{{ .Date.Format "2006-01-02" }}" class="entry-date" title="View all posts from this date">
+            {{ .Date.Format "MON JAN 02 2006" | upper }}
+          </a>
+          
+          <!-- Title Column -->
+          <div class="entry-title {{ if not .Title }}no-title{{ end }}">
+            <a href="{{ .Permalink }}">
+              {{ if .Title }}
+                {{ .Title }}
+              {{ else }}
+                {{ .Summary | truncate 60 }}
+              {{ end }}
+            </a>
+          </div>
+          
+          <!-- Tags Column -->
+          <div class="entry-tags">
+            {{ range .Params.categories }}
+              <a href="/categories/{{ . | urlize }}" title="View all posts tagged {{ . }}">#{{ . }}</a>
+            {{ end }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+    
+    <!-- Pagination -->
+    {{ if or $paginator.HasPrev $paginator.HasNext }}
+    <nav class="pagination" style="margin-top: 60px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; text-transform: uppercase;">
+      {{ if $paginator.HasPrev }}
+        <a href="{{ $paginator.Prev.URL }}" style="color: var(--color-text-666);">← Newer</a>
+      {{ else }}
+        <span></span>
+      {{ end }}
+      
+      {{ if $paginator.HasNext }}
+        <a href="{{ $paginator.Next.URL }}" style="color: var(--color-text-666);">Older →</a>
+      {{ end }}
+    </nav>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

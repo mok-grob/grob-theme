@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="site-main">
+  <article class="content-reading">
+    <header class="post-header">
+      {{ if .Title }}
+      <h1 class="post-title">{{ .Title }}</h1>
+      {{ end }}
+      
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">
+          {{ .Date.Format "MON JAN 02 2006" | upper }}
+        </time>
+        {{ if .Params.categories }}
+        <span style="margin: 0 8px; color: var(--color-text-999);">·</span>
+        {{ range $index, $category := .Params.categories }}
+          {{ if $index }}, {{ end }}
+          <a href="/categories/{{ . | urlize }}" style="color: var(--color-text-666);">#{{ . }}</a>
+        {{ end }}
+        {{ end }}
+      </div>
+    </header>
+    
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+    
+    {{ if .Params.categories }}
+    <footer class="post-footer">
+      <div class="post-tags">
+        {{ range .Params.categories }}
+          <a href="/categories/{{ . | urlize }}">#{{ . }}</a>
+        {{ end }}
+      </div>
+    </footer>
+    {{ end }}
+  </article>
+</div>
+{{ end }}
