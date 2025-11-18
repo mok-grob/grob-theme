@@ -33,7 +33,7 @@
   --page-margin: 120px;
   
   /* Distance from header bottom border to nav elements */
-  --nav-bottom-offset: 5px;
+  --nav-bottom-offset: 12px;
   
   /* Fine-tune body text inset from site-title alignment */
   --content-inset: 0px;
