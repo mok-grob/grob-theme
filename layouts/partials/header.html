@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="{{ .Site.LanguageCode }}">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
-  
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@400;450;500&display=swap" rel="stylesheet">
-  
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="/style.css">
-  
-  {{ if .Site.Params.description }}
-  <meta name="description" content="{{ .Site.Params.description }}">
-  {{ end }}
-  
-  <!-- RSS Feed -->
-  <link rel="alternate" type="application/rss+xml" href="{{ .Site.BaseURL }}feed.xml" title="{{ .Site.Title }}">
-</head>
-<body>
-  <header class="site-header">
-    <nav class="site-nav">
-      <div class="site-title">
-        <a href="/">{{ .Site.Title }}</a>
-      </div>
-      
-      <ul class="nav-menu">
-        <li><a href="/notes">Notes</a></li>
-        <li><a href="/projects">Projects</a></li>
-      </ul>
-      
-      <div class="nav-search">
-        <input type="search" placeholder="search..." id="site-search" />
-      </div>
-    </nav>
-  </header>
+<a href="{{ "/" | relURL }}" class="title">
+  <h2>{{ .Site.Title }}</h2>
+</a>
+<nav>{{- partial "nav.html" . -}}</nav>
