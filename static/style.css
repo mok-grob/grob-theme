@@ -14,6 +14,7 @@
   /* Neutrals */
   --color-bg-white: #FFFFFF;
   --color-bg-grey: #F5F5F5;
+  --color-bg-search: #FAFAFA;
   --color-text-999: #999999;
   --color-text-666: #666666;
   --color-text-555: #555555;
@@ -24,10 +25,22 @@
   --font-mono: 'DM Mono', monospace;
   --font-sans: 'DM Sans', sans-serif;
   
-  /* Spacing */
+  /* ===========================================
+     LAYOUT SPACING - EASY TO CHANGE
+     =========================================== */
+  
+  /* Left/right margins - the empty vertical strips */
+  --page-margin: 120px;
+  
+  /* Distance from header bottom border to nav elements */
+  --nav-bottom-offset: 5px;
+  
+  /* Fine-tune body text inset from site-title alignment */
+  --content-inset: 0px;
+  
+  /* Content width (between the two vertical strips) */
   --content-max-width: 800px;
   --reading-max-width: 680px;
-  --nav-height: 80px;
   
   /* Borders */
   --border-thin: 1px solid var(--color-text-000);
@@ -72,16 +85,16 @@ a:hover {
   top: 0;
   background-color: var(--color-bg-white);
   border-bottom: var(--border-thin);
-  padding: 20px 40px;
+  padding: 20px var(--page-margin);
+  padding-bottom: var(--nav-bottom-offset);
   z-index: 100;
 }
 
 .site-nav {
-  max-width: var(--content-max-width);
-  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 32px;
 }
 
 .site-title {
@@ -105,7 +118,7 @@ a:hover {
 .nav-menu {
   display: flex;
   gap: 32px;
-  align-items: center;
+  align-items: flex-end;
   list-style: none;
 }
 
@@ -138,7 +151,7 @@ a:hover {
   padding: 6px 12px;
   border: var(--border-subtle);
   border-radius: 0;
-  background: var(--color-bg-grey);
+  background: var(--color-bg-search);
   color: var(--color-text-333);
 }
 
@@ -153,15 +166,13 @@ a:hover {
    ============================================ */
 
 .site-main {
-  max-width: var(--content-max-width);
-  margin: 0 auto;
-  padding: 60px 40px;
+  padding: 60px var(--page-margin);
+  padding-left: calc(var(--page-margin) + var(--content-inset));
 }
 
 /* Reading-optimized content (posts) */
 .content-reading {
   max-width: var(--reading-max-width);
-  margin: 0 auto;
 }
 
 /* Full-width content (lists, archives) */
@@ -468,11 +479,12 @@ a:hover {
 
 @media (max-width: 800px) {
   :root {
-    --nav-height: 60px;
+    --page-margin: 20px;
+    --nav-bottom-offset: 10px;
   }
   
   .site-header {
-    padding: 16px 20px;
+    padding-top: 16px;
   }
   
   .site-nav {
@@ -495,7 +507,7 @@ a:hover {
   }
   
   .site-main {
-    padding: 40px 20px;
+    padding-top: 40px;
   }
   
   .changelog-entry {
