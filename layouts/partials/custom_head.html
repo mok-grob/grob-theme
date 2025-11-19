@@ -14,7 +14,7 @@
   :root {
     /* Layout spacing */
     --page-margin: 120px;              /* Empty strips on left/right */
-    --nav-bottom-offset: 12px;         /* Nav distance from header border */
+    --nav-bottom-offset: 0px;         /* Nav distance from header border */
     --content-inset: 0px;              /* Fine-tune body vs title alignment */
     
     /* Colors */
@@ -51,10 +51,10 @@
   header {
     padding: 20px var(--page-margin);
     padding-bottom: var(--nav-bottom-offset);
-    border-bottom: 1px solid var(--color-text-black);
+    border-bottom: 1px solid var(--color-text-light);
     display: flex;
     align-items: flex-end;
-    gap: 32px;
+    gap: 35px;
   }
 
   /* Site title */
@@ -76,7 +76,7 @@
   /* Navigation links */
   nav {
     display: flex;
-    gap: 32px;
+    gap: 12px;
     align-items: flex-end;
   }
 
@@ -94,6 +94,7 @@
 
   nav a:hover {
     color: var(--color-text-black);
+	text-decoration: overline 2px;
   }
 
   /* ===========================================
